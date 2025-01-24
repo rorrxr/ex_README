@@ -5,26 +5,75 @@
   - 마이크로서비스 아키텍처(MSA)를 도입하여 트래픽이 몰리는 상황에서도 안정적인 사용자 경험을 목표로 합니다.
   - 프로젝트 인원 : 1인 (개인)
 
+<details>
+  <summary>프로젝트 실행 방법</summary>
+
+  ### 1. Git Clone
+  ```bash
+  git clone <repository-url>
+```
+
+### 2. .env 파일 설정
+
+```
+# Docker
+MYSQL_ROOT_PASSWORD={데이터베이스 비밀번호}
+MYSQL_DATABASE={데이터베이스 이름}
+
+DB_USERNAME={데이터베이스 username}
+DB_PASSWORD={username의 비밀번호}
+
+# SMTP
+MAIL_USERNAME={SMTP 메일 송신 이메일}
+MAIL_PASSWORD={SMTP 메일 송신 비밀번호}
+
+# JWT Secret Key
+JWT_SECRET_KEY={JWT KEY값}
+
+# Encryption Secret Key
+ENCRYPTION_SECRET_KEY={암호화 KEY값}
+
+# 스프링 데이터베이스 URL
+SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/{데이터베이스 이름}?useSSL=false&allowPublicKeyRetrieval=true
+```
+
+### 3. Docker 이미지 빌드
+``` bash
+docker buildx build --platform linux/amd64 -f eureka-server/Dockerfile -t eureka-server:latest . --load
+docker buildx build --platform linux/amd64 -f gateway-service/Dockerfile -t gateway-service:latest . --load
+docker buildx build --platform linux/amd64 -f product-service/Dockerfile -t product-service:latest . --load
+docker buildx build --platform linux/amd64 -f user-service/Dockerfile -t user-service:latest . --load
+docker buildx build --platform linux/amd64 -f order-service/Dockerfile -t order-service:latest . --load
+docker buildx build --platform linux/amd64 -f wishlist-service/Dockerfile -t wishlist-service:latest . --load
+docker buildx build --platform linux/amd64 -f payment-service/Dockerfile -t payment-service:latest . --load
+```
+
+### 4. Docker Compose로 컨테이너 실행
+```bash
+docker-compose up --build -d
+```    
+</details>
+
 ## 프로젝트 기간
-    - 2024.12 - (진행중)
+- 2024.12 ~ (진행중)
 
 ## 주요 기능
-1. 사용자 관리 (user-service)
+### 사용자 관리 (user-service)
 - Google SMTP를 사용한 이메일 인증 기반 회원가입 기능
 - AES 알고리즘을 사용하여 개인정보 암호화 저장
 - JWT, Spring Security 기반으로 하여 로그인 및 로그아웃 기능
-2. 상품 관리 (product-service)
+### 상품 관리 (product-service)
 - 상품 목록 및 상세 페이지 제공
 - 선착순 구매 상품 및 일반 상품 구분
 - 상품 재고 실시간 업데이트
-3. 주문 관리 (order-service)
+### 주문 관리 (order-service)
 - 주문 및 반품 관리
 - 주문 상태 실시간 추적 (결제 중, 배송 중, 배송 완료 등)
-4. 위시리스트 관리 (wishlist-service)
+### 위시리스트 관리 (wishlist-service)
   - 위시리스트 조회 기능
   - 위시리스트 추가, 수정, 삭제 기능
     
-  5. 결제 관리 (payment-service)
+### 결제 관리 (payment-service)
   - 결제 진입 및 결제 기능
     
 ## 기술 스택
@@ -34,57 +83,8 @@
 - DevOps : Docker, Git
 - ETC : InteliJ, Google SMTP
 
-- 프로젝트 실행 방법
-    1. git clone
-    
-    ```jsx
-    git clone 
-    ```
-    
-    **.env 파일 설정**
-    
-    ```java
-    # Docker
-    MYSQL_ROOT_PASSWORD={데이터베이스 비밀번호}
-    MYSQL_DATABASE={데이터베이스 이름}
-    
-    DB_USERNAME={데이터베이스 username}
-    DB_PASSWORD=username의 비밀번호
-    
-    # SMTP
-    MAIL_USERNAME={SMTP 메일 송신 이메일}
-    MAIL_PASSWORD=SMTP 메일 송신 비밀번호
-    
-    # JWT Secret Key
-    JWT_SECRET_KEY={JWT KEY값}
-    
-    # Encryption Secret Key
-    ENCRYPTION_SECRET_KEY={암호화 KEY값}
-    
-    # 스프링 데이터베이스 URL
-    SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/{데이터베이스 이름}?useSSL=false&allowPublicKeyRetrieval=true
-    ```
-    
-    **1. 도커 이미지 빌드**
-    
-    ```java
-    docker buildx build --platform linux/amd64 -f eureka-server/Dockerfile -t eureka-server:latest . --load
-    docker buildx build --platform linux/amd64 -f gateway-service/Dockerfile -t gateway-service:latest . --load
-    docker buildx build --platform linux/amd64 -f product-service/Dockerfile -t product-service:latest . --load
-    docker buildx build --platform linux/amd64 -f user-service/Dockerfile -t user-service:latest . --load
-    docker buildx build --platform linux/amd64 -f order-service/Dockerfile -t order-service:latest . --load
-    docker buildx build --platform linux/amd64 -f wishlist-service/Dockerfile -t wishlist-service:latest . --load
-    docker buildx build --platform linux/amd64 -f payment-service/Dockerfile -t payment-service:latest . --load
-    ```
-    
-    **2. Docker Compose로 컨테이너 실행**
-    
-    ```jsx
-    docker-compose up --build -d
-    ```
-    
 
-- 기술적 의사결정
+## 기술적 의사결정
 
 <details>
   <summary>MSA 도입 계기</summary>
@@ -161,21 +161,18 @@
   <!-- 내용 -->
 </details>
 
-# 아키텍처
+## 아키텍처
+![Structure](https://github.com/rorrxr/ex_README/blob/main/%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.drawio%20(1).png)
 
-![시스템 아키텍처.drawio.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4ec93cf7-9af6-4f27-8e50-6f2b1842d4d3/0f1f518f-bdad-4f1e-bbce-5435236abf21/%EC%8B%9C%EC%8A%A4%ED%85%9C_%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.drawio.png)
-
-# ERD
+## ERD
     
-    
+ ![ERD](https://github.com/rorrxr/ex_README/blob/main/erd.png) 
 
-![erd.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4ec93cf7-9af6-4f27-8e50-6f2b1842d4d3/74e6ad57-79ff-4054-bb21-9749438bd1ac/erd.png)
+## 화면 구성/API
 
-# 화면 구성/API
+차후 수정
 
-차후 수정정
-
-# 트러블 슈팅
+## 트러블 슈팅
 
 ### 실시간 재고 캐싱 처리
 
