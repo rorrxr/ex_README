@@ -6,7 +6,7 @@
   - 프로젝트 인원 : 1인 (개인)
 
 <details>
-  <summary>프로젝트 실행 방법</summary>
+  <summary>🎇 프로젝트 실행 방법</summary>
 
   ### 1️⃣ Git Clone
   ```bash
