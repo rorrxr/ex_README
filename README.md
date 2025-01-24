@@ -1,5 +1,5 @@
 # WhiteMonday - 선착순 구매 e-commerce
-## 프로젝트 소개
+## 🔎 프로젝트 소개
 
   - WhiteMonday는 빠르게 변화하는 e-commerce 환경에서 효율적인 대규모 주문 처리와 선착순 구매 기능을 제공하는 서비스입니다.
   - 마이크로서비스 아키텍처(MSA)를 도입하여 트래픽이 몰리는 상황에서도 안정적인 사용자 경험을 목표로 합니다.
@@ -8,12 +8,12 @@
 <details>
   <summary>프로젝트 실행 방법</summary>
 
-  ### 1. Git Clone
+  ### 1️⃣ Git Clone
   ```bash
   git clone https://github.com/rorrxr/WhiteMonday.git
 ```
 
-### 2. .env 파일 설정
+### 2️⃣ .env 파일 설정
 
 ```
 # Docker
@@ -37,7 +37,7 @@ ENCRYPTION_SECRET_KEY={암호화 KEY값}
 SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/{데이터베이스 이름}?useSSL=false&allowPublicKeyRetrieval=true
 ```
 
-### 3. Docker 이미지 빌드
+### 3️⃣ Docker 이미지 빌드
 ``` bash
 docker buildx build --platform linux/amd64 -f eureka-server/Dockerfile -t eureka-server:latest . --load
 docker buildx build --platform linux/amd64 -f gateway-service/Dockerfile -t gateway-service:latest . --load
@@ -48,35 +48,31 @@ docker buildx build --platform linux/amd64 -f wishlist-service/Dockerfile -t wis
 docker buildx build --platform linux/amd64 -f payment-service/Dockerfile -t payment-service:latest . --load
 ```
 
-### 4. Docker Compose로 컨테이너 실행
+### 4️⃣ Docker Compose로 컨테이너 실행
 ```bash
 docker-compose up --build -d
 ```    
 </details>
 
-## 프로젝트 기간
+## 🎯 프로젝트 기간
 - 2024.12 ~ (진행중)
 
-## 주요 기능
-### 사용자 관리 (user-service)
+## 🚀 주요 기능
+### 📌 사용자 관리
 - Google SMTP를 사용한 이메일 인증 기반 회원가입 기능
 - AES 알고리즘을 사용하여 개인정보 암호화 저장
 - JWT, Spring Security 기반으로 하여 로그인 및 로그아웃 기능
-### 상품 관리 (product-service)
+### 📌 상품 관리
 - 상품 목록 및 상세 페이지 제공
 - 선착순 구매 상품 및 일반 상품 구분
 - 상품 재고 실시간 업데이트
-### 주문 관리 (order-service)
+- 위시리스트 조회 기능
+### 📌 주문 관리 
 - 주문 및 반품 관리
 - 주문 상태 실시간 추적 (결제 중, 배송 중, 배송 완료 등)
-### 위시리스트 관리 (wishlist-service)
-  - 위시리스트 조회 기능
-  - 위시리스트 추가, 수정, 삭제 기능
+- 결제 진입 및 결제 기능
     
-### 결제 관리 (payment-service)
-  - 결제 진입 및 결제 기능
-    
-## 기술 스택
+## 💻 기술 스택
 - Backend : JAVA 21, Spring Boot 3.3.6, Spring Security, Spring Data JPA, Spring Cloud Netflix Eureka Client, JWT (Authentication & Token Management), Lombok
 - Database : MySQL, Redis, DBeaver
 - Test Tool : Postman, K6
@@ -84,10 +80,10 @@ docker-compose up --build -d
 - ETC : InteliJ, Google SMTP
 
 
-## 기술적 의사결정
+## ❓ 기술적 의사결정
 
 <details>
-<summary>MSA 도입 계기</summary>
+<summary> 1️⃣ MSA 도입 계기</summary>
     WhiteMonday 프로젝트에서 마이크로서비스 아키텍처(MSA)를 도입한 이유는 e-commerce 환경에서 요구되는 확장성과 안정성을 확보하기 위함입니다. MSA는 서비스 단위를 독립적으로 설계하고 운영할 수 있어, 특정 서비스의 변경이나 장애가 발생해도 다른 서비스에 미치는 영향을 최소화할 수 있습니다.
     <br><br>
     특히, 핫딜 이벤트와 같이 트래픽이 급증하는 상황에서 MSA의 개별 서비스 확장 기능이 큰 이점을 제공합니다. 예를 들어, 상품 관리 서비스에 트래픽이 집중되는 경우 해당 서비스만 수평 확장을 통해 대응함으로써 전체 시스템의 안정성을 유지할 수 있었습니다.
@@ -98,7 +94,7 @@ docker-compose up --build -d
 </details>
 
 <details>
-  <summary>Spring Boot</summary>
+  <summary> 2️⃣ Spring Boot</summary>
   Spring Boot는 생산성, 확장성, 그리고 Spring 생태계와의 통합성 측면에서 우수하여 주요 프레임워크로 선정되었습니다. Spring Boot의 자동 설정 기능과 내장 서버는 초기 개발 과정을 단순화하고 빠른 프로토타이핑을 가능하게 했습니다.
     <br><br>
     또한, Spring Framework의 풍부한 기능을 활용해 MSA 환경에서 마이크로서비스 간 통신(예: Feign Client)이나 분산 시스템 구현을 간소화했습니다. 높은 유연성을 제공함으로써 프로젝트 요구사항의 변화에도 쉽게 대응할 수 있었으며, 커뮤니티와 문서 지원을 통해 개발 중 발생한 문제를 신속히 해결할 수 있었습니다.
@@ -108,7 +104,7 @@ docker-compose up --build -d
 
 <details>
 
-  <summary>Spring Boot 3.3.6과 JAVA 21 버전 선택</summary>
+  <summary> 3️⃣ Spring Boot 3.3.6과 JAVA 21 버전 선택</summary>
       Spring Boot 3.3.6과 Java 21의 조합은 프로젝트에서 발생했던 호환성 문제를 해결하기 위해 선택되었습니다.
     <br><br>
     초기 개발 과정에서 Feign Client 통신 및 일부 Spring Boot 기능이 예상대로 동작하지 않는 문제가 있었으며, 이는 사용 중인 Spring Boot와 Java 버전 간의 호환성 문제로 확인되었습니다. Spring Boot 3.3.6은 최신 LTS(Lifecycle Support)를 지원하며, Java 21은 Long-Term Support 버전으로 최신 기능과 안정성을 제공합니다. 두 버전 간 상호 호환성이 보장될 뿐만 아니라 성능 최적화와 보안 패치 측면에서도 우수한 선택이었습니다.
@@ -117,7 +113,7 @@ docker-compose up --build -d
 </details>
 
 <details>
-  <summary>MySQL (RDBMS)</summary>
+  <summary> 4️⃣ MySQL (RDBMS)</summary>
   
   MySQL은 데이터의 일관성을 유지하고 핵심 데이터를 안정적으로 관리하기 위해 선택되었습니다. <br><br>
 상품 정보와 주문 데이터를 정규화된 테이블 구조로 관리함으로써 데이터 무결성을 보장하였으며, JPA를 통해 데이터 관리와 비즈니스 로직을 효율적으로 처리할 수 있었습니다.<br><br>
@@ -127,7 +123,7 @@ docker-compose up --build -d
 
 <details>
 
-  <summary>Redis (NoSQL)</summary>
+  <summary> 5️⃣ Redis (NoSQL)</summary>
   Redis는 실시간 데이터 캐싱을 통해 시스템 성능을 최적화하기 위해 도입되었습니다. 
     <br><br>
     대규모 트래픽 상황에서 자주 조회되는 재고 정보를 캐싱하여 데이터베이스 접근을 줄이고 빠른 응답 속도를 보장할 수 있었습니다. 
@@ -136,7 +132,7 @@ docker-compose up --build -d
 </details>
 
 <details>
-  <summary>MySQL (RDBMS)과 Redis (NoSQL) 병행 사용 선택</summary>
+  <summary> 6️⃣ MySQL (RDBMS)과 Redis (NoSQL) 병행 사용 선택</summary>
   
   MySQL과 Redis를 병행 사용한 이유는 각각의 장점을 살리면서 데이터 일관성과 성능을 동시에 확보하기 위함입니다.
 
@@ -144,14 +140,14 @@ docker-compose up --build -d
 </details>
 
 <details>
-    <summary>Feign Client</summary>
+    <summary> 7️⃣ Feign Client</summary>
     Feign Client는 간결하고 직관적인 선언적 API 클라이언트를 제공하여 코드의 가독성과 유지보수를 크게 개선했습니다. 
     <br><br>
     이를 통해 서비스 간 통신을 효율적으로 처리할 수 있었으며, MSA 환경에서 반복적으로 발생하는 통신 관련 로직을 간소화할 수 있었습니다.
 </details>
 
 <details>
-      <summary>K6</summary>
+      <summary> 8️⃣ K6</summary>
     k6는 성능 테스트의 간편한 구현과 효율적인 리소스 사용을 위해 선택되었습니다. JavaScript 기반의 직관적인 스크립트 작성과 간단한 CLI 환경은 초기 학습 비용을 줄이고 빠르게 테스트를 시작할 수 있도록 도와줍니다.
     <br><br>
     고성능 C++ 기반으로 개발된 k6는 동시 사용자(VU) 시뮬레이션에 최적화되어 있어 대규모 테스트 환경에서도 안정적으로 동작하며, Prometheus 및 Grafana와 같은 모니터링 도구와의 통합을 통해 실시간 데이터 시각화와 분석이 가능합니다.
@@ -160,24 +156,16 @@ docker-compose up --build -d
 </details>
 
 <details>
-      <summary>Kafka (추후 구현 예정)</summary>
+      <summary> 9️⃣ Kafka (추후 구현 예정)</summary>
   <br>
 </details>
 
-## 아키텍처
-![Structure](https://github.com/rorrxr/ex_README/blob/main/%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.drawio%20(1).png)
+## 📃 API 설계서
+차후 Postman으로 수정 예정
 
-## ERD
-    
- ![ERD](https://github.com/rorrxr/ex_README/blob/main/erd.png) 
+## 🚨 트러블 슈팅
 
-## 화면 구성/API
-
-차후 수정
-
-## 트러블 슈팅
-
-### 실시간 재고 캐싱 처리
+### 1️⃣ 실시간 재고 캐싱 처리
 
 **[BEFORE] DB 직접 조회**
 
@@ -199,7 +187,7 @@ docker-compose up --build -d
 
 ---
 
-### 동시성 문제 해결
+### 2️⃣ 동시성 문제 해결
 
 **[BEFORE] 동시 재고 업데이트 충돌 → DB 락 기반 처리**
 
@@ -220,7 +208,7 @@ docker-compose up --build -d
 
 ---
 
-### 재고 초과 결제 문제 해결
+### 3️⃣ 재고 초과 결제 문제 해결
 
 **[BEFORE] 재고 초과 결제 발생**
 
@@ -250,7 +238,7 @@ docker-compose up --build -d
 
 ---
 
-### 상품 페이지 재고 불일치 문제 해결
+### 4️⃣ 상품 페이지 재고 불일치 문제 해결
 
 **[BEFORE] 상품 페이지 재고 정보 불일치**
 
@@ -282,7 +270,7 @@ docker-compose up --build -d
 
 ---
 
-### 트래픽 몰림 문제 해결
+### 5️⃣ 트래픽 몰림 문제 해결
 
 **[BEFORE] 오픈 시간 트래픽 집중으로 서버 다운**
 
@@ -316,7 +304,7 @@ docker-compose up --build -d
 
 ---
 
-### 결제 실패 시 재고 복구 문제 해결
+### 6️⃣ 결제 실패 시 재고 복구 문제 해결
 
 **[BEFORE] 결제 실패 후 재고 복구 누락**
 
