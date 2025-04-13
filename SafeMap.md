@@ -1,0 +1,154 @@
+## **📖 목차**
+
+1. [🔎 프로젝트 소개](#-프로젝트-소개)
+2. [🎯 프로젝트 기간](#-프로젝트-기간)
+3. [🚀 주요 기능](#-주요-기능)
+5. [❓ 기술적 의사결정](#-기술적-의사결정)
+3. [📃 API 설계서](#-api-설계서)
+6. [🛠 ERD](#-erd)
+7. [🛠 아키텍처](#-아키텍처)
+8. [🚨 트러블 슈팅](#-트러블-슈팅)
+
+## 🔎 프로젝트 소개
+
+- 
+## 🎯 프로젝트 기간
+- 1차 MVP 개발 기간 : 2025.04.13 ~ 2025.04.27
+
+## 🧑‍💻 팀원 소개
+
+| **이름**    | **역할**        | 
+|:-----------:|:---------------:|
+| 강수진      | 팀장 & FE       | 
+| 김민주      | BE              |
+| 오예준      | BE              | 
+| 정누리      | BE              | 
+| 정하승      | FE              | 
+
+## 역할 분담
+
+| **이름**    | **역할**        | 
+|:-----------:|:---------------:|
+| 김민주      | BE              |
+| 오예준      | BE              | 
+| 정누리      | BE              | 
+
+## 📃 API 설계서
+-
+## 🛠 ERD
+-
+## 🛠 아키텍처
+-
+<details>
+  <summary>🎇 프로젝트 실행 방법</summary>
+
+### 1️⃣ Git Clone
+  ```bash
+  git clone 
+```
+
+### 2️⃣ .env 파일 설정
+
+```
+# Docker
+MYSQL_ROOT_PASSWORD={데이터베이스 비밀번호}
+MYSQL_DATABASE={데이터베이스 이름}
+
+DB_USERNAME={데이터베이스 username}
+DB_PASSWORD={username의 비밀번호}
+
+# SMTP
+MAIL_USERNAME={SMTP 메일 송신 이메일}
+MAIL_PASSWORD={SMTP 메일 송신 비밀번호}
+
+# JWT Secret Key
+JWT_SECRET_KEY={JWT KEY값}
+
+# Encryption Secret Key
+ENCRYPTION_SECRET_KEY={암호화 KEY값}
+
+# 스프링 데이터베이스 URL
+SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/{데이터베이스 이름}?useSSL=false&allowPublicKeyRetrieval=true
+```
+
+### 3️⃣ Docker 이미지 빌드
+``` bash
+docker buildx build --platform linux/amd64 -f eureka-server/Dockerfile -t eureka-server:latest . --load
+```
+
+### 4️⃣ Docker Compose로 컨테이너 실행
+```bash
+docker-compose up --build -d
+```    
+</details>
+
+
+
+## 🚀 주요 기능
+### 📌 
+- Google SMTP를 사용한 이메일 인증 기반 회원가입 기능
+- AES 알고리즘을 사용하여 개인정보 암호화 저장
+- JWT, Spring Security 기반으로 하여 로그인 및 로그아웃 기능
+### 📌 
+- 상품 목록 및 상세 페이지 제공
+- 선착순 구매 상품 및 일반 상품 구분
+- 상품 재고 실시간 업데이트
+- 위시리스트 조회 기능
+### 📌 
+- 주문 및 반품 관리
+- 주문 상태 실시간 추적 (결제 중, 배송 중, 배송 완료 등)
+- 결제 진입 및 결제 기능
+
+## ⚙️ 기술 스택
+- Backend : JAVA 17, Spring Boot 3.4.0, Spring Security, Spring Data JPA
+- Database : MySQL, Redis, DBeaver
+- Test Tool : Postman
+- DevOps : Docker, Git
+- ETC : InteliJ, Google SMTP
+
+## ❓ 기술적 의사결정
+
+<details>
+<summary> 1️⃣ Spring Boot 3.4.0과 JAVA 17 버전 선택</summary>
+  
+</details>
+
+<details>
+  <summary> 2️⃣ MySQL (RDBMS)</summary>
+  
+</details>
+
+<details>
+
+  <summary> 3️⃣ </summary>
+     
+</details>
+
+<details>
+  <summary> 4️⃣ </summary>
+
+</details>
+
+
+<details>
+
+  <summary> 5️⃣ </summary>
+ 
+</details>
+
+<details>
+  <summary> 6️⃣ </summary>
+
+</details>
+
+<details>
+    <summary> 7️⃣ </summary>
+  
+</details>
+
+<details>
+      <summary> 8️⃣ </summary>
+    
+</details>
+
+## 🚨 트러블 슈팅
