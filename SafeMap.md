@@ -1,22 +1,24 @@
 ## 📖 목차
 
-1. [🔎 프로젝트 소개](#-프로젝트-소개)
-2. [🎯 프로젝트 기간](#-프로젝트-기간)
-3. [🧑‍💻 팀원 소개](#-팀원-소개)
-4. [🚀 주요 기능](#-주요-기능)
-5. [⚙️ 기술 스택](#️-기술-스택)
-6. [📃 API 설계서](#-api-설계서)
-7. [🛠 ERD](#-erd)
-8. [🛠 아키텍처](#-아키텍처)
-9. [❓ 기술적 의사결정](#-기술적-의사결정)
-10. [📈 성능 개선](#-성능-개선)
-11. [🚨 트러블 슈팅](#-트러블-슈팅)
+1. [🔎 프로젝트 소개](#-프로젝트-소개)  
+2. [🎯 프로젝트 기간](#-프로젝트-기간)  
+3. [🧑‍💻 팀원 소개](#-팀원-소개)  
+4. [🧑‍💻 역할 분담](#-역할-분담)  
+5. [🚀 주요 기능](#-주요-기능)  
+6. [⚙️ 기술 스택](#️-기술-스택)  
+7. [📃 API 설계서](#-api-설계서)  
+8. [🛠 ERD](#-erd)  
+9. [🛠 아키텍처](#-아키텍처)  
+10. [❓ 기술적 의사결정](#-기술적-의사결정)  
+11. [📈 성능 개선](#-성능-개선)  
+12. [🚨 트러블 슈팅](#-트러블-슈팅)  
+
 
 
 
 ## 🔎 프로젝트 소개
 
-- 
+-
 ## 🎯 프로젝트 기간
 - 1차 MVP 개발 기간 : 2025.04.13 ~ 2025.04.27
 
@@ -67,13 +69,14 @@ docker-compose up --build -d
 
 | **이름**    | **역할**        | 
 |:-----------:|:---------------:|
-| 강수진      | 팀장 & FE       | 
-| 김민주      | BE              |
+| 김민주      | 팀장 & BE       | 
 | 오예준      | BE              | 
 | 정누리      | BE              | 
+| 박지원      | FE              |
 | 정하승      | FE              | 
 
-## 역할 분담
+
+## 🧑‍💻 역할 분담
 
 | **이름**    | **역할**        | 
 |:-----------:|:---------------:|
@@ -94,14 +97,14 @@ docker-compose up --build -d
 - 부 기능 1
 - 부 기능 2
 - 부 기능 3
-- 
+-
 ## ⚙️ 기술 스택
 - Backend : Java 17, Spring Boot 3.4.0, Spring Security, Spring Data JPA
 - Database : MySQL, Redis, DBeaver
 - Test Tool : Postman
 - DevOps : Docker, Git
 - ETC : InteliJ, Google SMTP
-  
+
 ## 📃 API 설계서
 -
 ## 🛠 ERD
@@ -113,18 +116,18 @@ docker-compose up --build -d
 
 <details>
 <summary> 1️⃣ Spring Boot 3.4.0과 JAVA 17 버전 선택</summary>
-  
+
 </details>
 
 <details>
   <summary> 2️⃣ MySQL (RDBMS)</summary>
-  
+
 </details>
 
 <details>
 
   <summary> 3️⃣ </summary>
-     
+
 </details>
 
 <details>
@@ -136,7 +139,7 @@ docker-compose up --build -d
 <details>
 
   <summary> 5️⃣ </summary>
- 
+
 </details>
 
 <details>
@@ -146,12 +149,12 @@ docker-compose up --build -d
 
 <details>
     <summary> 7️⃣ </summary>
-  
+
 </details>
 
 <details>
       <summary> 8️⃣ </summary>
-    
+
 </details>
 
 ## 📈 성능 개선
